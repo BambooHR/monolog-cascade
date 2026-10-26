@@ -29,7 +29,7 @@ class PhpArray extends FileLoaderAbstract
      *
      * @return array Array containing data from the PHP file
      */
-    public function load($resource, $type = null)
+    public function load(mixed $resource, ?string $type = null): mixed
     {
         $config = include $resource;
 
@@ -52,7 +52,7 @@ class PhpArray extends FileLoaderAbstract
      *
      * @return boolean Whether or not the passed in resource is supported by this loader
      */
-    public function supports($resource, $type = null)
+    public function supports(mixed $resource, ?string $type = null): bool
     {
         return $this->isFile($resource) && $this->validateExtension($resource);
     }
